@@ -2,13 +2,13 @@ import scala.annotation.tailrec
 
 object Main extends App {
   
-  def isPalInt(num: Int): Boolean = num.toString == num.toString.reverse
+  def isPal(num: Int): Boolean = num.toString == num.toString.reverse
   
   @tailrec
   def reverseAddTest(count: Int, num: Int): (Int, Int) = {
     val numReverse = num.toString.reverse.toInt
     val sum = num + numReverse
-    if (isPalInt(sum)) (count + 1, sum)
+    if (isPal(sum)) (count + 1, sum)
     else reverseAddTest(count + 1, sum)
   }
   
