@@ -1,6 +1,10 @@
 import scala.collection.mutable.ListBuffer
 import scala.annotation.tailrec
 
+/**
+ * Solution to https://www.codeeval.com/open_challenges/50/
+ */
+
 object Main extends App {
 
   /*
