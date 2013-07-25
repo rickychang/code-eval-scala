@@ -40,7 +40,9 @@ object Main extends App {
   for (l <- lines) {
     val Array(inputStr, subStr) = l.split(";")
     val subs = parseSubs(subStr)
-    val res = subs.foldLeft(List((false, inputStr))) { (lb, s) => makeSub(lb, s) }.map(_._2).mkString
+    val initialSegments = List((false, inputStr))
+    val res = subs.foldLeft(initialSegments) { (lb, s) => makeSub(lb, s) }
+      .map(_._2).mkString
     println(res)
   }
 }
