@@ -9,11 +9,11 @@ object Main extends App {
     println(permutations(chars).map(_.mkString("")).sorted.mkString(","))
   }
 
-  def permutations[T <: AnyRef](l: List[T]): List[List[T]] = l match {
+  def permutations[T](l: List[T]): List[List[T]] = l match {
     case List() => List(List())
     case _ => for {
       e <- l;
-      rest <- permutations(l filterNot (_ eq e))
+      rest <- permutations(l filterNot (_ == e))
     } yield e :: rest
   }
 }
