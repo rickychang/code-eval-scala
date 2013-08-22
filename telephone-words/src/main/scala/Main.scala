@@ -14,6 +14,7 @@ object Main extends App {
     8 -> "tuv",
     9 -> "wxyz")
 
+  // TODO: write using accumulator
   def validWords(phoneNum: String): List[String] = {
     val validLetters = phoneNum.toList.map(i => numLetterMap(i.asDigit))
 
