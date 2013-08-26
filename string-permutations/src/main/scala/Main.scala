@@ -1,4 +1,5 @@
 import scala.runtime.RichChar
+import scala.annotation.tailrec
 
 object Main extends App {
 

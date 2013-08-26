@@ -14,18 +14,19 @@ object Main extends App {
     8 -> "tuv",
     9 -> "wxyz")
 
-  // TODO: write using accumulator
   def validWords(phoneNum: String): List[String] = {
     val validLetters = phoneNum.toList.map(i => numLetterMap(i.asDigit))
 
-    def helper(l: List[String]): List[String] = l match {
-      case List() => List("")
-      case hd :: tail => for {
-        c <- hd.toList;
-        rest <- helper(tail)
-      } yield c.toString + rest
+    def helper(acc: String, l: List[String]): List[String] = l match {
+      case List() => List(acc)
+      case hd :: tail => {
+        val result = for {
+        c <- hd.elements
+      } yield helper(acc + c.toString, tail)
+      result.toList.flatten
+      }
     }
-    helper(validLetters).sorted
+    helper("", validLetters).sorted
   }
 
   val source = scala.io.Source.fromFile(args(0))
